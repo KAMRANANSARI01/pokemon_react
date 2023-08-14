@@ -28,11 +28,11 @@ async function downloadPokemon(){
 
   const pokemonResultPromise= pokemonResults.map((ele)=>axios.get(ele.url));//iterates over the array of  pokemon and use url to creat an array of those 20 pokemons details
   const pokemonData = await axios.all(pokemonResultPromise);
-  // console.log(pokemonData)
+  console.log(pokemonData)
 //now we are iterating each pokemons id name and images
   const pokeListres = pokemonData.map((pokedata) => {
     const pokemons = pokedata.data;
-    // console.log(pokemons)
+    console.log(pokemons)
     return {
         id : pokemons.id,
         name : pokemons.name,
