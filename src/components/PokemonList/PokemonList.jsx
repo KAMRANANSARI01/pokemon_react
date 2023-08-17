@@ -60,7 +60,7 @@ async function downloadPokemon(){
           (isloading)?'loading......' : pokemonList.map((p)=><Pokemon name={p.name} image = {p.image} key={p.id}  id={p.id}/>)
          }
         </div>
-        <div className="flex justify-center items-center gap-5 mb-[27px] mt-7">
+        <div className="flex justify-center items-center gap-7 mb-[27px] mt-7">
           <button className="py-[8px] px-[20px] shadow-lg  w-[100px] border-[2px] text-gray-200 bg-transparent rounded-lg "   disabled={preUrl==null} onClick={()=>setPokeListUrl(preUrl )}>Previous</button>
           <button className="py-[8px] px-[20px] shadow-lg border-[2px] text-gray-200 w-[100px] rounded-lg"  disabled={nextUrl==null} onClick={()=>{
             setPokeListUrl(nextUrl)
