@@ -18,13 +18,14 @@ const[preUrl,setPreUrl] = useState();
 async function downloadPokemon(){
   setIsloading(true)
   const responce = await axios.get(pokeListUrl ); //this download list of 20 pokemon
+  // console.log(responce)
   const pokemonResults = responce.data.results; //array of 20 pokemon in which only name and url of 20 pokemon 
 
-  console.log( pokemonResults);
+  // console.log( pokemonResults);
   setNextUrl(responce.data.next);
-  console.log(nextUrl)
+  // console.log(nextUrl)
   setPreUrl(responce.data.previous);
-  console.log(preUrl)
+  // console.log(preUrl)
 
   const pokemonResultPromise= pokemonResults.map((ele)=>axios.get(ele.url));//iterates over the array of  pokemon and use url to creat an array of those 20 pokemons details
   const pokemonData = await axios.all(pokemonResultPromise);
@@ -40,7 +41,7 @@ async function downloadPokemon(){
        types : pokemons.types
     }
   });
-  // console.log(pokeListres)
+  console.log(pokeListres)
   setPokemonList(pokeListres)
   setIsloading(false)
 }
